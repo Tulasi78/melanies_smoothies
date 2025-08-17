@@ -23,7 +23,7 @@ pd_df=my_dataframe.to_pandas()
 
 
 ingredients_list = st.multiselect(
-    'Choose upto 5 ingradients: ', my_dataframe
+    'Choose upto 5 ingredients: ', my_dataframe
     , max_selections=5
     )
 
