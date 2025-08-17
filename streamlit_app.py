@@ -47,7 +47,7 @@ if ingredients_list:
    #st.write(my_insert_stmt)
    #st.stop()
 
-   time_to_submit = st.button('submit order',type="primary"
+   time_to_submit = st.button('submit order',type="primary")
                                
    if time_to_submit:
     session.sql(my_insert_stmt).collect()
