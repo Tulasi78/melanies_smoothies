@@ -6,10 +6,10 @@ from snowflake.snowpark.functions import col
 
 
 # Write directly to the app
-st.title("Customize your Smoothie!! :balloon:")
+st.title(":cup_with_straw: Customize Your Smoothie:cup_with_straw:")
 st.write(
 """
-This is test!!!
+Choose the fruits you want in your custom smoothie
 """)
 
 cnx=st.connection('snowflake')
@@ -22,15 +22,15 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 pd_df=my_dataframe.to_pandas()
 
 
-ingredient_list = st.multiselect(
+ingredients_list = st.multiselect(
     'Choose upto 5 ingradients: ', my_dataframe
     , max_selections=5
     )
 
-if ingredient_list:
+if ingredients_list:
     ingredient_string = ''
 
-    for fruit_chosen in ingredient_list:
+    for fruit_chosen in ingredients_list:
         ingredient_string += fruit_chosen + ' '
 
         search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
